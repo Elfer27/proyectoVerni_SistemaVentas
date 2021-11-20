@@ -11,9 +11,21 @@
              $conexionClass = new Tools();
              $conexion = $conexionClass->conectar();
 
-             $sql = "SELECT * from usuarios where usuario = '$usuario' and clave = '$clave'";
+             $sql = "SELECT * from usuario where usuario = '$usuario' and clave = '$clave'";
              $resultado = mysqli_query($conexion, $sql);
+             $conexionClass->desconectar($conexion);
              return $resultado;
+         }
+
+         /**
+         * Función para cerrar sesión
+         */
+
+         function cerrar_sesion(){
+             session_start();
+             session_destroy();
+             header("location: ../../index.php");
+             exit;
          }
     }
 ?>

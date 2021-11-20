@@ -11,4 +11,5 @@
     #CLASES DE LA CAPA DE MODELO DE BASE DE DATOS
     require_once("class/Conn/Tools.php");
     require_once("class/Login/loginClass.php");
+    require_once("class/Usuarios/usuariosClass.php");
 ?>

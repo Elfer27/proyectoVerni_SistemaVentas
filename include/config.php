@@ -1,7 +1,7 @@
 <?php
     #DEFINICION DE LAS CONSTANTES DE CONEXIÓN
     define("SERVER", "127.0.0.1");
-    define("USER", "curso2");
+    define("USER", "root");
     define("PASS", "");
     define("DB", "ventas");
 
