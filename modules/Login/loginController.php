@@ -15,7 +15,7 @@
         $_SESSION['nombre_usuario'] = $fila['nombre'];
         $_SESSION['user'] = $fila['usuario'];
         $_SESSION['email_usuario'] = $fila['email'];
-        $SESSION['user_role_id'] = $fila['idrol'];
+        $_SESSION['user_role_id'] = $fila['idrol'];
         header("location: ../../main.php");
     }
 
@@ -24,9 +24,11 @@
         echo "<script>
             alert('¡QUE MAL, PARECE QUE TUS CREDENCIALES SON INCORRECTAS!');
             history.back();
-        </script>";
+            </script>";
         exit(-1);
     }
 
     ob_end_flush();
 ?>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

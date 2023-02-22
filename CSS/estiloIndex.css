@@ -11,6 +11,17 @@
     border-color: rgb(243, 92, 230);
 }
 #containerIndex {
-    background-image: url("https://www.notatnik-kreatywny.pl/wp-content/uploads/2019/01/TAPETA-KAKTUSY-PULPIT-ROZOWA-1320x743.png");
+    /*
+        background-image: url("https://www.notatnik-kreatywny.pl/wp-content/uploads/2019/01/TAPETA-KAKTUSY-PULPIT-ROZOWA-1320x743.png");
+    */
+    background-image: url('../img/fondo_index.png');
+}
+
+.warnings{
+    width:200px;
+    text-align: center;
+    margin: auto;
+    color:blue;
+    padding-top: 20px;
 }
 

@@ -3,7 +3,7 @@
     if (!$_SESSION['user_id']){
         header("location: ../../index.php");
     }
-    include_once('../../include/functions.php');
+    include_once('../../include/Functions.php');
     $usuariosClass = new usuariosClass();
     $resultado = array();
     $resultadoRol = array();
@@ -144,7 +144,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Nuevo Usuario</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Editar Usuario</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 

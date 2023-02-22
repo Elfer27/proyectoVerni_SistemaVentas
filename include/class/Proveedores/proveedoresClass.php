@@ -1,38 +1,25 @@
 <?php
 include_once(RAIZ_APLICACION."/functions.php");
-
-    class usuariosClass{
-        //Funcion para obtener el listado de usuarios    
-        function lista_usuarios(){  
+    class proveedoresClass{
+        //Funcion para obtener el listado de proveedores    
+        function lista_proveedores(){  
             //Instancias de conexión
             $conexionClass = new Tools();
             $conexion = $conexionClass->conectar();
 
-            $sql = "SELECT a.idusuario, a.nombre, a.dpi, a.direccion, a.telefono, a.email, a.estado, a.usuario, a.clave, b.nombre as rol FROM usuario a, rol b where a.idrol = b.idrol;";
+            $sql = "SELECT * FROM persona WHERE tipo_persona = 'Proveedor';";
             $resultado = mysqli_query($conexion, $sql);
             $conexionClass->desconectar($conexion);
             return $resultado;
         }
 
-        //Funcion para obtener el listado de roles   
-        function lista_roles(){  
+        //Funcion para crear un nuevo proveedor  
+        function crear_proveedor($nombre, $dpi, $direccion, $telefono, $correo){  
             //Instancias de conexión
             $conexionClass = new Tools();
             $conexion = $conexionClass->conectar();
 
-            $sql = "SELECT * FROM rol;";
-            $resultado = mysqli_query($conexion, $sql);
-            $conexionClass->desconectar($conexion);
-            return $resultado;
-        }
-
-        //Funcion para crear un nuevo usuario   
-        function crear_usuario($rol, $nombre, $usuario, $correo, $clave, $dpi, $telefono, $direccion){  
-            //Instancias de conexión
-            $conexionClass = new Tools();
-            $conexion = $conexionClass->conectar();
-
-            $sql = "INSERT INTO usuario (idrol, nombre, usuario, email, clave, dpi, telefono, direccion, estado) VALUES ($rol, '$nombre', '$usuario', '$correo', '$clave', '$dpi', '$telefono', '$direccion', 'A');";
+            $sql = "INSERT INTO persona (tipo_persona, nombre, dpi, direccion, telefono,  email) VALUES ('Proveedor', '$nombre', '$dpi', '$direccion', '$telefono', '$correo');";
             $resultado = mysqli_query($conexion, $sql);
 
             if($resultado){
@@ -45,13 +32,13 @@ include_once(RAIZ_APLICACION."/functions.php");
             }
         }
 
-        //Funcion para eliminar un usuario por su id   
-        function eliminar_usuario($idusuario){  
+        //Funcion para eliminar un proveedor por su id   
+        function eliminar_proveedor($idproveedor){  
             //Instancias de conexión
             $conexionClass = new Tools();
             $conexion = $conexionClass->conectar();
 
-            $sql = "DELETE FROM usuario WHERE idusuario= $idusuario;";
+            $sql = "DELETE FROM persona WHERE idpersona= $idproveedor;";
             $resultado = mysqli_query($conexion, $sql);
 
             if($resultado){
@@ -64,33 +51,31 @@ include_once(RAIZ_APLICACION."/functions.php");
             }
         }
 
-        //Funcion para cargar un usuario   
-        function cargar_usuario($idusuario){  
+        //Funcion para cargar un proveedor   
+        function cargar_proveedor($idproveedor){  
             //Instancias de conexión
             $conexionClass = new Tools();
             $conexion = $conexionClass->conectar();
 
-            $sql = "SELECT * FROM usuario WHERE idusuario = '$idusuario';";
+            $sql = "SELECT * FROM persona WHERE idpersona = '$idproveedor';";
             $resultado = mysqli_query($conexion, $sql);
 
             return $resultado;
         }
 
-        //Funcion para editar un usuario   
-        function editar_usuario($rol_id, $nombre, $correo, $clave, $dpi, $direccion, $telefono, $user_id){  
+        //Funcion para editar un proveedor 
+        function editar_proveedor($idproveedor, $nombre, $dpi, $direccion, $telefono, $correo){  
             //Instancias de conexión
             $conexionClass = new Tools();
             $conexion = $conexionClass->conectar();
 
-            $sql = "UPDATE usuario SET 
-                idrol = $rol_id,
+            $sql = "UPDATE persona SET 
                 nombre = '$nombre',
-                email = '$correo', 
-                clave = '$clave',
-                dpi = '$dpi',  
+                dpi = '$dpi', 
                 direccion = '$direccion', 
-                telefono = '$telefono' 
-                where idusuario = $user_id;";
+                telefono = '$telefono',
+                email = '$correo'      
+                WHERE idpersona = $idproveedor;";
 
             $resultado = mysqli_query($conexion, $sql);
 
@@ -105,5 +90,4 @@ include_once(RAIZ_APLICACION."/functions.php");
         }
 
     }
-
 ?>

@@ -3,7 +3,7 @@
     define("SERVER", "127.0.0.1");
     define("USER", "root");
     define("PASS", "");
-    define("DB", "ventas");
+    define("DB", "ventas_proyecto1");
 
     #OTROS
     define("RAIZ_APLICACION", dirname(__FILE__));

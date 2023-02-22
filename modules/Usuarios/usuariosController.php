@@ -13,6 +13,7 @@ $eliminarUsuario = (isset($_POST['eliminar_usuario'])) ? $_POST['eliminar_usuari
 $cargarUsuario = (isset($_POST['cargar_usuario'])) ? $_POST['cargar_usuario'] : "0";
 $editarUsuario = (isset($_POST['editar_usuario'])) ? $_POST['editar_usuario'] : "0";
 
+
 if($crearUsuario == 1){
     $rol = (isset($_POST['rol'])) ? $_POST['rol'] : "0";
     $nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : "0"; 
@@ -78,4 +79,5 @@ if($editarUsuario ==1){
     $newdata['resultado'] = $resultado;
     echo json_encode($newdata);
 }
+
 ?>
